@@ -27,7 +27,7 @@ wgctl -Interactive
 wgctl
 ```
 
-### 2. Full Custom Parameters
+### 2. Custom Params
 
 Skip the prompts by providing Network details:
 ```powershell
@@ -48,7 +48,7 @@ Need to monitor a specific tunnel (like `wg0`)? Just start the watcher:
 wgctl -Watch -TunnelName "wg0"
 ```
 
-## Direct Class usage
+## Direct
 
 If you prefer using it in your scripts, import the module and use the exposed classes seamlessly:
 
@@ -61,17 +61,17 @@ If you prefer using it in your scripts, import the module and use the exposed cl
 [WireguardCtl]::InstallWireGuard("--config C:\payload.json")
 ```
 
-### ### .EXAMPLE
+### .EXAMPLE
 ```powershell
 # Generate an Installer Programmatically:
 $myConfig = [WgInstallerConfig]::new(
-    "wg1",               # Interface Name
-    "192.168.10.2/32",   # Client IP
-    "1.1.1.1",           # DNS
-    "<Base64PubKey>",    # Server Public Key
-    "0.0.0.0/0",         # Allowed IPs
+    "wg1",                   # Interface Name
+    "192.168.10.2/32",       # Client IP
+    "1.1.1.1",               # DNS
+    "<Base64PubKey>",        # Server Public Key
+    "0.0.0.0/0",             # Allowed IPs
     "home.domain.com:51820", # Endpoint
-    25                   # KeepAlive
+    25                       # KeepAlive
 )
 
 $installerScript = $myConfig.ToInstallerScript()
