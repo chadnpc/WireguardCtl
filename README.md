@@ -54,6 +54,8 @@ If you prefer using it in your scripts, import the module and use the exposed cl
 
 ### .EXAMPLE
 ```powershell
+#Requires -Modules wireguardctl
+
 # Pass whole string arguments straight to the class
 [WireguardCtl]::InstallWireGuard("--interactive --output installer.ps1")
 
